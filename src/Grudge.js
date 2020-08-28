@@ -1,9 +1,10 @@
 import React from 'react';
+import { GrudgeContext } from './GrudgeContext';
 
-const Grudge = React.memo(({ grudge, onForgive }) => {
-  const forgive = () => onForgive(grudge.id);
+const Grudge = ({ grudge }) => {
+  const { toggleForgiveness } = React.useContext(GrudgeContext)
 
-  console.log('Grudge')
+  const forgive = () => toggleForgiveness(grudge.id);
 
   return (
     <article className="Grudge">
@@ -17,6 +18,6 @@ const Grudge = React.memo(({ grudge, onForgive }) => {
       </div>
     </article>
   );
-});
+};
 
 export default Grudge;
